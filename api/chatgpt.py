@@ -4,12 +4,13 @@ from openai import OpenAI
 client = OpenAI()
 
 client.api_key = os.getenv("OPENAI_API_KEY")
+gpt_model = os.getenv("GPT_MODEL")
 
 
 class ChatGPT:
     def __init__(self):
         self.prompt = Prompt()
-        self.model = os.getenv("OPENAI_MODEL", default = "gpt-3.5-turbo")
+        self.model = os.getenv("OPENAI_MODEL", default = gpt_model)
         self.temperature = float(os.getenv("OPENAI_TEMPERATURE", default = 0))
         self.max_tokens = int(os.getenv("OPENAI_MAX_TOKENS", default = 500))
 
